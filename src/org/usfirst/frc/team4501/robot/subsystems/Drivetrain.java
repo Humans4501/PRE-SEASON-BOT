@@ -26,8 +26,8 @@ public class Drivetrain extends Subsystem {
 	
 
 	
-	public void drivemanual(double speed1, double speed2) {
-		drive.arcadeDrive(speed1, speed2);
+	public void drivemanual(double move, double turn) {
+		drive.arcadeDrive(move, turn);
 	}
 	
 	public void driveauto(double speedx, double speedy) {

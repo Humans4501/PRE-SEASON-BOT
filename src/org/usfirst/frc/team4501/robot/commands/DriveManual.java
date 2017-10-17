@@ -10,13 +10,13 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveManual extends Command {
 	
-	OI oi;
+
 
     public DriveManual() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
-    	OI oi = new OI();
+
     	
     }
 
@@ -27,7 +27,7 @@ public class DriveManual extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
  
-    	Robot.driveTrain.drivemanual(oi.getTriggers(), oi.getLeftXboxX());
+    	Robot.driveTrain.drivemanual(Robot.oi.getTriggers(), Robot.oi.getLeftXboxX());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,10 +37,12 @@ public class DriveManual extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveTrain.drivemanual(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
