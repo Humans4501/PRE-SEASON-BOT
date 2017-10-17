@@ -16,7 +16,7 @@ public class DriveManual extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
-    	OI oi;
+    	OI oi = new OI();
     	
     }
 
@@ -26,6 +26,7 @@ public class DriveManual extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+ 
     	Robot.driveTrain.drivemanual(oi.getTriggers(), oi.getLeftXboxX());
     }
 
