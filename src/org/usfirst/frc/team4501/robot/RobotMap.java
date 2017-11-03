@@ -17,6 +17,29 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	public static final int MOTOR1 = 1;
-	public static final int MOTOR2 = 2;
+	public static class Motors {	
+	
+	public static final int MOTOR1 = 0;
+	public static final int MOTOR2 = 1;
+	public static final int MOTOR3 = 2;
+	public static final int MOTOR4 = 3;
+	public static final int MOTOR5 = 4;
+	public static final int MOTOR6 = 5;
+	}
+	
+	public static class Solenoids {
+		public static final int HIGHGEAR = 1;
+		public static final int LOWGEAR = 2;
+	}
+	
+	public static class Sensors{
+		public static final int ENCODER1_A = 6;
+		public static final int ENCODER1_B = 7;
+		public static final int ENCODER2_A = 8;
+		public static final int ENCODER2_B = 9;
+		public static final int ENCODER3_A = 10;
+		public static final int ENCODER3_B = 11;
+	}
+	
+	
 }

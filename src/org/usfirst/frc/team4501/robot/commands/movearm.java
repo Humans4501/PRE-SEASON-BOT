@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class driveauto extends Command {
+public class movearm extends Command {
 
-    public driveauto() {
+    public movearm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrain);
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class driveauto extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveauto(1, 1);
+    	Robot.arm.moveArm(Robot.oi.getRightXboxY(), Robot.oi.getRightXboxY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +31,6 @@ public class driveauto extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.driveauto(0, 0);
     }
 
     // Called when another command which requires one or more of the same

@@ -1,8 +1,11 @@
 package org.usfirst.frc.team4501.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4501.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4501.robot.commands.shifthigh;
+import org.usfirst.frc.team4501.robot.commands.shiftlow;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,10 +40,12 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	XboxController controller = new XboxController(0);
-	
+	Button shiftHigh = new JoystickButton(controller, controller.BUTTON_A);
+	Button shiftLow = new JoystickButton(controller, controller.BUTTON_B);
 	public OI() {
-
-		}
+		shiftHigh.whenPressed(new shifthigh());
+		shiftLow.whenPressed(new shiftlow());
+	}
 	
 	public double getTriggers() {
 		return controller.getRawAxis(XboxController.TRIGGER_R) - controller.getRawAxis(XboxController.TRIGGER_L);
@@ -49,6 +54,10 @@ public class OI {
 
 	public double getLeftXboxX() {
 		return controller.getRawAxis(0);
+	}
+	
+	public double getRightXboxY() {
+		return controller.getRawAxis(5);
 	}
 	
 	}

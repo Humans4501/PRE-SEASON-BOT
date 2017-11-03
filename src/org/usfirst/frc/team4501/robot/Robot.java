@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4501.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4501.robot.commands.driveauto;
+import org.usfirst.frc.team4501.robot.subsystems.Arm;
 import org.usfirst.frc.team4501.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
 
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drivetrain driveTrain= new Drivetrain();
+	public static final Arm arm = new Arm();
 	public static OI oi;
 
 	Command autonomousCommand;
