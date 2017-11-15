@@ -4,11 +4,14 @@ package org.usfirst.frc.team4501.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4501.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4501.robot.commands.circling;
 import org.usfirst.frc.team4501.robot.commands.driveauto;
 import org.usfirst.frc.team4501.robot.subsystems.Arm;
 import org.usfirst.frc.team4501.robot.subsystems.Drivetrain;
@@ -21,7 +24,8 @@ import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+
+   public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drivetrain driveTrain= new Drivetrain();
@@ -29,6 +33,10 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
+	
+
+
+
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -38,10 +46,14 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		chooser.addDefault("Metal Gear", new driveauto());
+		chooser.addDefault("Circle", new circling());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+		SmartDashboard.putData("Auto Mode", chooser);
+
+		
 		
 	}
 
@@ -111,6 +123,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Potentiometer", arm.potRate());
+		SmartDashboard.putNumber("Arm Encoder", arm.encRate1());
+		SmartDashboard.putNumber("Drive Encoder 1", driveTrain.encRate1());
+		SmartDashboard.putNumber("Drive Encoder 2", driveTrain.encRate2());
+
 	}
 
 	/**

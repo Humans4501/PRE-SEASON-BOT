@@ -20,7 +20,10 @@ public class Drivetrain extends Subsystem {
 	Talon talon1, talon2;
 	RobotDrive drive;
 	DoubleSolenoid sol1;
-	Encoder enc1, enc2, enc3;
+	Encoder enc2, enc3;
+	
+	double driveEnc1;
+	double driveEnc2;
 	
 	public Drivetrain() {
 		talon1 = new Talon(RobotMap.Motors.MOTOR1);
@@ -29,10 +32,12 @@ public class Drivetrain extends Subsystem {
 		drive = new RobotDrive(talon1, talon2);
 		
 		sol1 = new DoubleSolenoid(RobotMap.Solenoids.HIGHGEAR, RobotMap.Solenoids.LOWGEAR);
-	
-		enc1 = new Encoder(RobotMap.Sensors.ENCODER1_A, RobotMap.Sensors.ENCODER1_B);
+		
 		enc2 = new Encoder(RobotMap.Sensors.ENCODER2_A, RobotMap.Sensors.ENCODER2_B);
 		enc3 = new Encoder(RobotMap.Sensors.ENCODER3_A, RobotMap.Sensors.ENCODER3_B);
+
+	
+		
 	}
 	
 
@@ -54,11 +59,16 @@ public class Drivetrain extends Subsystem {
 		sol1.set(DoubleSolenoid.Value.kReverse);
 	}
 	
-	public void resetEncoders() {
-		enc1.reset();
-		enc2.reset();
-		enc3.reset();
+	public double encRate1() {
+		driveEnc1 = enc2.getRate();
+		return driveEnc1;
 	}
+	
+	public double encRate2() {
+		driveEnc2 =enc3.getRate();
+		return driveEnc2;
+	}
+
 
 
     public void initDefaultCommand() {
