@@ -41,8 +41,8 @@ public class RobotMap {
 		public static final int ENCODER3_B = 5;
 		
 		public static final int POTENTIOMETERA = 0;
-		public static final int POTENTIOMETERB = 13;
-		public static final int POTENTIOMETERC = 14;
+		public static final int POTENTIOMETERB = 0;
+		public static final int POTENTIOMETERC = 360;
 		
 	}
 	
