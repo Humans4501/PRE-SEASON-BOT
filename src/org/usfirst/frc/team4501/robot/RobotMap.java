@@ -33,12 +33,12 @@ public class RobotMap {
 	}
 	
 	public static class Sensors{
-		public static final int ENCODER1_A = 6;
-		public static final int ENCODER1_B = 7;
-		public static final int ENCODER2_A = 8;
-		public static final int ENCODER2_B = 9;
-		public static final int ENCODER3_A = 10;
-		public static final int ENCODER3_B = 11;
+		public static final int ENCODER1_A = 0;
+		public static final int ENCODER1_B = 1;
+		public static final int ENCODER2_A = 2;
+		public static final int ENCODER2_B = 3;
+		public static final int ENCODER3_A = 4;
+		public static final int ENCODER3_B = 5;
 		
 		public static final int POTENTIOMETERA = 0;
 		public static final int POTENTIOMETERB = 13;
