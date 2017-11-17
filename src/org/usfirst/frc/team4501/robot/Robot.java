@@ -125,8 +125,8 @@ import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Potentiometer", arm.potRate());
 		SmartDashboard.putNumber("Arm Encoder", arm.encRate1());
-		SmartDashboard.putNumber("Drive Encoder 1", driveTrain.encRate1());
-		SmartDashboard.putNumber("Drive Encoder 2", driveTrain.encRate2());
+		SmartDashboard.putNumber("Drive Encoder 1", driveTrain.encDist1());
+		SmartDashboard.putNumber("Drive Encoder 2", driveTrain.encDist2());
 
 	}
 
