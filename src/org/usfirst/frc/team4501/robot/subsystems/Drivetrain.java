@@ -24,6 +24,8 @@ public class Drivetrain extends Subsystem {
 	
 	double driveEnc1;
 	double driveEnc2;
+	double x;
+	
 	
 	public Drivetrain() {
 		talon1 = new Talon(RobotMap.Motors.MOTOR1);
@@ -59,13 +61,15 @@ public class Drivetrain extends Subsystem {
 		sol1.set(DoubleSolenoid.Value.kReverse);
 	}
 	
-	public double encRate1() {
-		driveEnc1 = enc2.getRate();
+	public double encDist1() {
+		driveEnc1 =enc2.getDistance();
+	
 		return driveEnc1;
 	}
 	
-	public double encRate2() {
-		driveEnc2 =enc3.getRate();
+	public double encDist2() {
+		driveEnc2 =enc3.getDistance();
+		
 		return driveEnc2;
 	}
 

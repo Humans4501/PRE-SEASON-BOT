@@ -55,6 +55,7 @@ public class Arm extends Subsystem {
     	
     	 return potRate;
     }
+
     
     public double encRate1() {
     	armEnc = enc1.getRate();
@@ -62,6 +63,8 @@ public class Arm extends Subsystem {
     	return armEnc;
     	    	
     }
+    
+    
     
 
 }
