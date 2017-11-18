@@ -24,6 +24,8 @@ public class Drivetrain extends Subsystem {
 	
 	double driveEnc1;
 	double driveEnc2;
+	double encRate1;
+	double encRate2;
 	double x;
 	
 	
@@ -71,6 +73,22 @@ public class Drivetrain extends Subsystem {
 		driveEnc2 =enc3.getDistance();
 		
 		return driveEnc2;
+	}
+	
+	public double encRate1() {
+		encRate1 = enc2.getRate();
+		
+		return encRate1;
+	}
+	
+	public double encRate2() {
+		encRate2 = enc3.getRate();
+		return encRate2;
+	}
+	
+	public void encReset() {
+		enc2.reset();
+		enc3.reset();
 	}
 
 

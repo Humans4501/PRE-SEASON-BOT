@@ -105,6 +105,11 @@ import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder Distance 1", driveTrain.encDist1());
+		SmartDashboard.putNumber("Encoder Distance 2", driveTrain.encDist2());
+		SmartDashboard.putNumber("Encoder Rate 1", driveTrain.encRate1());
+		SmartDashboard.putNumber("Encoder Rate 2", driveTrain.encRate2());
+
 	}
 
 	@Override
@@ -115,7 +120,7 @@ import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-	}
+	}         
 
 	/**
 	 * This function is called periodically during operator control
@@ -127,6 +132,8 @@ import org.usfirst.frc.team4501.robot.subsystems.ExampleSubsystem;
 		SmartDashboard.putNumber("Arm Encoder", arm.encRate1());
 		SmartDashboard.putNumber("Drive Encoder 1", driveTrain.encDist1());
 		SmartDashboard.putNumber("Drive Encoder 2", driveTrain.encDist2());
+		SmartDashboard.putNumber("Encoder Rate 1", driveTrain.encRate1());
+		SmartDashboard.putNumber("Encoder Rate 2", driveTrain.encRate2());
 
 	}
 

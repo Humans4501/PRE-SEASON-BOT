@@ -17,29 +17,30 @@ public class driveauto extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.driveTrain.encReset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.driveauto(1, 1);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
-    	if(Robot.driveTrain.encDist1()>1000) {
-    		
-    		Robot.driveTrain.driveauto(0, 0);
-    
+    	if(Robot.driveTrain.encDist1()<-15632) {
+    	return true;
     	}
     	
-    	return true;
+		return false;
+    	
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
     	Robot.driveTrain.driveauto(0, 0);
+  				
+    	
     	
     }
 
