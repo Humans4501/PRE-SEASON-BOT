@@ -1,12 +1,15 @@
 package org.usfirst.frc.team4501.robot.subsystems;
 
 import org.usfirst.frc.team4501.robot.RobotMap;
+import org.usfirst.frc.team4501.robot.commands.movearm;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,12 +24,13 @@ public class Arm extends Subsystem {
 	Talon mot1, mot2;
 	RobotDrive drive;
 	
-	 Potentiometer pot;
-	 Encoder enc1;
-	 
+	
+	AnalogPotentiometer pot;
+    Encoder enc1;
+    DigitalInput limitSwitch;
+    
 	 double potRate;
 	 double armEnc;
-	 
 	
 	public Arm() {
 		mot1 = new Talon(RobotMap.Motors.MOTOR3);
@@ -36,6 +40,8 @@ public class Arm extends Subsystem {
 		
 		enc1 = new Encoder(RobotMap.Sensors.ENCODER1_A, RobotMap.Sensors.ENCODER1_B);
 		
+		limitSwitch = new DigitalInput(RobotMap.Sensors.LIMITSWITCH);
+		
 	}
 	
 	public void moveArm(double x, double y) {
@@ -43,11 +49,15 @@ public class Arm extends Subsystem {
 		mot2.set(y);
 	}
 	
-
+	public  boolean isSwitchSet() {
+		limitSwitch.get();
+		return true;
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new movearm());
     }
     
     public double potRate() {
@@ -55,17 +65,11 @@ public class Arm extends Subsystem {
     	
     	 return potRate;
     }
-
     
     public double encRate1() {
     	armEnc = enc1.getRate();
     	
-    	return armEnc;
-    	    	
+    	return armEnc;    	
     }
-    
-    
-    
-
 }
 

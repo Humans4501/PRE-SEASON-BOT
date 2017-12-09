@@ -18,10 +18,13 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	public static class Motors {	
-	
+	//drive is MOTOR1
 	public static final int MOTOR1 = 0;
+	//drive is MOTOR2
 	public static final int MOTOR2 = 1;
+	//arm is MOTOR3
 	public static final int MOTOR3 = 2;
+	//arm is MOTOR4
 	public static final int MOTOR4 = 3;
 	public static final int MOTOR5 = 4;
 	public static final int MOTOR6 = 5;
@@ -43,6 +46,8 @@ public class RobotMap {
 		public static final int POTENTIOMETERA = 0;
 		public static final int POTENTIOMETERB = 270;
 		public static final int POTENTIOMETERC = 0;
+		
+		public static final int LIMITSWITCH = 1;
 		
 	}
 	

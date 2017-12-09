@@ -38,8 +38,7 @@ public class driveauto extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.driveauto(0, 0);
-  				
+    	Robot.driveTrain.driveauto(0, 0);		
     	
     	
     }
